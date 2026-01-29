@@ -12,7 +12,73 @@ Date: 27/01/2026-->
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+    <div class="brand-side">
+    <img src="images/logo.png" alt="Logo" class="brand-side__logo">
+    </div>
+
+
+
+      <nav>
+        <ul class="side-menu">
+          <li>
+            <!-- Home -->
+            <a class="side-menu__link is-active" href="home.html">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="side-menu__link" href="bids.html">
+              <i class="fa-solid fa-gavel"></i>
+              <span>Deal with Bids</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="side-menu__link" href="sales.html">
+              <i class="fa-solid fa-handshake"></i>
+              <span>Deal with Sales</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="side-menu__link" href="clients.html">
+              <i class="fa-solid fa-users"></i>
+              <span>Client Maintenance</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="side-menu__link" href="property.html">
+              <i class="fa-solid fa-house-chimney"></i>
+              <span>Property Maintenance</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="side-menu__link" href="reports.html">
+              <i class="fa-solid fa-chart-column"></i>
+              <span>Reports Menu</span>
+            </a>
+          </li>
+
+          <li class="danger">
+            <a class="side-menu__link" href="login.html">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Exit</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+
+    </aside>
+    <header class="content__top">
         <h1>Delete a Residential Property</h1>
     </header>
 
@@ -26,7 +92,7 @@ Date: 27/01/2026-->
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form>
-
+    </div>
     <footer>
         <p>© The Digital Architects</p>
     </footer>
