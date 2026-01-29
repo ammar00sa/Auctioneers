@@ -8,7 +8,7 @@
 <body>
     <h2>Add New Office Property</h2>
 
-    <form action="<?php  htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    <form action="<?php  htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <label for="address">Address: </label>
         <input type="text" name="address" id="address" required pattern="[A-Za-z0-9\s\.,]+" placeholder="Posh Street, Barrow">
         <br>
