@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Office</title>
+    <title>Amend/View Office</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="layout">
+
+<div class="layout">
 
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -99,24 +100,35 @@
 
     <!-- Main content -->
     <main class="content">
-         <!-- Viewing or reading records from the database using primary key -->
-    <form action="ViewOffice.php" method="post">
-        <p>
-            <label for="offices">Select the address of the office you want to view: </label>
-            <select name="offices" id="offices">
-                <option value="address1">Address 1</option>
-                <option value="address2">Address 2</option>
-            </select>
-        </p>
 
-        <br><br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Clear">
-        
-    </form>
+      <h2>Amend/View Office</h2>
+      <select name="offices" id="offices">
+        <option value="officeAddress1">Address 1</option>
+        <option value="officeAddress2">Address 2</option>
+    </select>
+
+    <div>
+        <p>Details of the office selected</p>
+    </div>
+
+    <div>
+
+    </div>
+
+    
+     <input type="submit" value="Save" onclick="confirmChange()">
     </main>
 
   </div>
-
+    <script>
+        function confirmChange(e){
+            //Submit form with the values to the database
+            let result = confirm("Are you sure (Y/N)?");
+            if(!result){
+                //Stay in the page without refreshing the page.
+                 e.preventDefault();
+            }
+        }
+    </script>
 </body>
 </html>

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Office</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="layout">
 
     <!-- Sidebar -->
@@ -67,19 +66,19 @@
 
           <!-- Office -->
           <li>
-            <a class="side-menu__link" href="AddOffice.html">
+            <a class="side-menu__link" href="add-office.html">
               <i class="fa-solid fa-building"></i>
               <span>Add a New Office Property</span>
             </a>
           </li>
           <li>
-            <a class="side-menu__link" href="DeleteOffice.html">
+            <a class="side-menu__link" href="delete-office.html">
               <i class="fa-solid fa-trash"></i>
               <span>Delete an Office Property</span>
             </a>
           </li>
           <li>
-            <a class="side-menu__link" href="AmendOffice.html">
+            <a class="side-menu__link" href="edit-office.html">
               <i class="fa-solid fa-pen-to-square"></i>
               <span>Amend/View an Office Property</span>
             </a>
@@ -99,24 +98,21 @@
 
     <!-- Main content -->
     <main class="content">
-         <!-- Viewing or reading records from the database using primary key -->
-    <form action="ViewOffice.php" method="post">
+      <header class="content__top">
+        <h2>Property Maintenance Menu</h2>
         <p>
-            <label for="offices">Select the address of the office you want to view: </label>
-            <select name="offices" id="offices">
-                <option value="address1">Address 1</option>
-                <option value="address2">Address 2</option>
-            </select>
+          Use the options on the left to add, delete, or amend/view property records
+          (Residential, Land, and Office).
         </p>
+      </header>
 
-        <br><br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Clear">
-        
-    </form>
+      <section class="card">
+        <h3>Add a New Residential Property</h3>
+        <p>
+          This is the “Residential Add” area. Later you can replace this with a form.
+        </p>
+      </section>
     </main>
-
   </div>
-
 </body>
 </html>
