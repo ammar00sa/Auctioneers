@@ -1,0 +1,89 @@
+<!-- Oyindamola Olaosun C00313475  Lab 3--->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Person Data</title>
+    <style>
+         * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+form {
+    border: 1px solid #ccc;
+    width: 90%; /* Responsive for mobile */
+    max-width: 500px; /* Limits size on desktop */
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Creates even spacing between elements */
+    border-radius: 8px;
+}
+
+label {
+    flex: 1 1 45%; /* Forces two columns if there's room */
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border: 2px solid red;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+    </style>
+</head>
+<body>
+    <!-- Person Registration Form connecting to php file using post method for security -->
+    <form action="insert1.php" method="post">
+        <p>
+            <label for="firstname">First Name: </label>
+            <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="off" required>
+        </p>
+
+        <p>
+            <label for="surname">Last Name: </label>
+            <input type="text" name="surname" id="surname" placeholder="Surname" required>
+        </p>
+
+        <p>
+            <label for="dob">Date of Birth: </label>
+            <input type="date" name="dob" id="dob" placeholder="Date of Birth" required>
+        </p>
+
+        <br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+    </form>
+</body>
+</html>

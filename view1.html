@@ -1,0 +1,80 @@
+<!-- Oyindamola Olaosun C00313475  Lab 3--->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+ <style>
+         * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+form {
+    border: 1px solid #ccc;
+    width: 90%; /* Responsive for mobile */
+    max-width: 500px; /* Limits size on desktop */
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Creates even spacing between elements */
+    border-radius: 8px;
+}
+
+label {
+    flex: 1 1 45%; /* Forces two columns if there's room */
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border: 2px solid red;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+    </style>
+</head>
+<body>
+    <!-- Viewing or reading records from the database using primary key -->
+    <form action="view1.php" method="post">
+        <p>
+            <label for="personid">Enter the personid of the record you want to view
+            <input type="text" name="personid" id="personid" placeholder="person id" autocomplete="off" required> (Person id)
+            </label>
+        </p>
+
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+        
+    </form>
+</body>
+</html>
