@@ -1,5 +1,8 @@
 <!-- Created by: Joseph Lalor
-Date: 26/01/2026-->
+Date: 26/01/2026
+Student Number: c00312883
+Title: resPropAdd.html.php
+Purpose: A HTML form for entering a new Residential Property-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

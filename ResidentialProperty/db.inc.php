@@ -1,6 +1,9 @@
 <!--
 Creator: Joseph Lalor
-Date: 05/02/2026-->
+Date: 05/02/2026
+Student Number: c00312883
+Title: db.inc.php
+Purpose: Setup connection to database -->
 <html>
 <body>
 <?php

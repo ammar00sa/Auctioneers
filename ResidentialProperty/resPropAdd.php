@@ -1,9 +1,9 @@
 <!--
 Creator: Joseph Lalor
 Date: 05/02/2026
-Student Number: c00312883 -->
-<html>
-<body>
+Student Number: c00312883
+Title: resPropAdd.php
+Purpose: Send details of form down to database -->
 <?php
 include 'db.inc.php'; 
 
@@ -22,5 +22,3 @@ echo "<br>A record has been added for ". $_POST['address'] . "<br>";
 
 mysqli_close($con); 
 ?>
-</body>
-</html>
