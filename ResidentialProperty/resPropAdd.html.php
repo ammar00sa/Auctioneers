@@ -21,9 +21,22 @@ Date: 26/01/2026-->
 
     <form action="resPropAdd.php" method="Post">
 
-        <label for="client">Client:</label><br>
+    <?php
+        include 'db.inc.php';
+        $sql = mysqli_query($con, "SELECT Name, ClientID FROM Client");
+        if (!$sql) {
+            die("Query failed: " . mysqli_error($con));
+        }
+    ?>
+
+    <label for="client">Client:</label><br>
         <select name="client" id="client">
-            <option value="placeholder">Here goes the list of clients</option>
+            <option value="">-- Select a client --</option>
+            <?php while ($row = mysqli_fetch_assoc($sql)) {?>
+                <option value="<?= htmlspecialchars($row['ClientID']) ?>">
+                    <?= htmlspecialchars($row['Name']) ?>
+                </option>
+            <?php } ?>
         </select><br>
 
         <label for="proptype">Property type: </label><br>

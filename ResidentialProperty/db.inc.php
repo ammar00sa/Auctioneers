@@ -4,7 +4,7 @@ Date: 05/02/2026-->
 <html>
 <body>
 <?php
-$hostname = "c2p-auctioneers26.candept.com";
+$hostname = "localhost";
 $username="bidmaster";
 $password="Auct10nRul3$";
 $dbname="Auctioneers";
