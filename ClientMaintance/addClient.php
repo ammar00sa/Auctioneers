@@ -7,22 +7,22 @@ include 'db.inc.php';
 date_default_timezone_set("UTC");
 echo "The details sent down are: <br>";
 
-echo "First Name is :" . $_POST['firstname'] . "<br>";
-echo "Surname is :" . $_POST['surname'] . "<br>";
+echo "Name is :" . $_POST['fname'] . "<br>";
+echo "Eircode is :" . $_POST['eircode'] . "<br>";
+echo "Phone number is :" . $_POST['phone'] . "<br>";
+echo "Email address is :" . $_POST['email'] . "<br>";
+echo "Client type is :" . $_POST['clientType'] . "<br>";
+echo "The client Address is :" . $_POST['address'] . "<br>";
 
-$date=date_create($_POST['dob']);
 
-echo "Date of Birth is :" . date_format($date,"d/m/Y") . "<br>";
-
-$sql = "INSERT INTO persons (firstName, lastName, dob)
-VALUES ('$_POST[firstname]', '$_POST[surname]', '$_POST[dob]')";
+$sql = "INSERT INTO Client (Name, Eircode, Phone, Email, ClientType, Address)
+VALUES ('$_POST[fname]', '$_POST[eircode]', '$_POST[phone]','$_POST[email]', '$_POST[clientType]', '$_POST[address]' )";
 
 if (!mysqli_query($con,$sql))
 {
     die ("An Error in the SQL Query: " . mysqli_error($con) );
 }
 
-echo "<br>A record has been added for " . $_POST['firstname'] . " " . $_POST['surname'] . "." ;
 
 mysqli_close($con);
 
