@@ -10,9 +10,7 @@ Purpose: A HTML form for entering a new Residential Property-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a New Residential Property</title>
     <script src="elements.js"></script>
-    <link rel="stylesheet" href="../MainScreens/style.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div id="menu"></div>
@@ -43,7 +41,7 @@ Purpose: A HTML form for entering a new Residential Property-->
         </select><br>
 
         <label for="proptype">Property type: </label><br>
-        <select name="proptype" id="proptype">
+        <select name="proptype" id="proptype" required>
             <option value="semidetached">Semi Detached</option>
             <option value="terraced">Terraced</option>
             <option value="detached">Detached</option>
@@ -52,31 +50,31 @@ Purpose: A HTML form for entering a new Residential Property-->
         </select><br> 
 
         <label for="address">Address:</label><br>
-        <input type="text" id="address" name="address"><br>
+        <input type="text" id="address" name="address" pattern="^[a-zA-Z ,]$" required><br>
 
         <label for="eircode">Eircode:</label><br>
-        <input type="text" id="eircode" name="eircode"><br>
+        <input type="text" id="eircode" name="eircode" required><br>
 
         <label for="location">Location:</label><br>
-        <input type="text" id="location" name="location"><br>
+        <input type="text" id="location" name="location" required><br>
 
         <label for="levels">Number of Levels:</label><br>
-        <input type="text" id="levels" name="levels"><br>
+        <input type="text" id="levels" name="levels" required><br>
 
         <label for="receptrooms">Number of Reception Rooms:</label><br>
-        <input type="text" id="receptrooms" name="receptrooms"><br>
+        <input type="text" id="receptrooms" name="receptrooms" required><br>
 
         <label for="bedrooms">Number of Bedrooms:</label><br>
-        <input type="text" id="bedrooms" name="bedrooms"><br>
+        <input type="text" id="bedrooms" name="bedrooms" required><br>
 
         <label for="bathrooms">Number of Bathrooms:</label><br>
-        <input type="text" id="bathrooms" name="bathrooms"><br>
+        <input type="text" id="bathrooms" name="bathrooms" required><br>
 
         <label for="area">Area of house:</label><br>
-        <input type="text" id="area" name="area"><br>
+        <input type="text" id="area" name="area" required><br>
 
         <label for="heating">Heating: </label><br>
-        <select name="heating" id="heating">
+        <select name="heating" id="heating" required>
             <option value="OFCH">OFCH</option>
             <option value="GFCH">GFCH</option>
             <option value="SFCH">SFCH</option>
@@ -86,27 +84,22 @@ Purpose: A HTML form for entering a new Residential Property-->
         </select><br>
 
         <label for="site">Site: </label><br>
-        <textarea name="site" rows="5" cols="30">Size, gardens, driveway, etc
+        <textarea name="site" rows="5" cols="30" required placeholder="Size, gardens, driveway, etc">
         </textarea><br> 
 
         <label for="notes">Notes: </label><br>
-        <textarea name="notes" rows="5" cols="30">E.G. Exceptional condition, beautiful view, landscaped gardens
+        <textarea name="notes" rows="5" cols="30" placeholder="E.G. Exceptional condition, beautiful view, landscaped gardens">
         </textarea><br>
 
         <label for="askingprice">Asking price:</label><br>
-        <input type="text" id="askingprice" name="askingprice"><br>
+        <input type="text" id="askingprice" name="askingprice" required pattern="^[\d, ]%"><br>
 
         <label for="vtimes">Viewing times: </label><br>
-        <textarea name="vtimes" rows="5" cols="30">E.G. By appointment, 9-11 Monday to Friday
+        <textarea name="vtimes" rows="5" cols="30" placeholder="E.G. By appointment, 9-11 Monday to Friday" required>
         </textarea><br>
 
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form>
-
-    
-    <footer>
-        <p>© The Digital Architects</p>
-    </footer>
 </body>
 </html>
