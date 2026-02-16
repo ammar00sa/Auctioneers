@@ -1,6 +1,8 @@
+
 <!doctype html>
 <html lang="en">
 <head>
+  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Client Maintenance</title>
@@ -73,17 +75,51 @@
 
           <h2>Select the client you wish to delete: </h2>
 
-          <section class=scroll-container>
-          <label for="madrid" class="scroll-item">
-          Madrid 
-          <abbr>MAD</abbr>
-          <input id="madrid" type="radio" name="items">
-        </label>
-          <label for="malta" class="scroll-item">
-          Malta 
-          <abbr>MLA</abbr>
-          <input id="malta" type="radio" name="items">
-        </label>
+
+
+<select name="clients">
+
+    <?php
+
+    include 'db.inc.php';
+    date_default_timezone_set("UTC");
+
+    $sql = "SELECT * from Client";
+    $result = mysqli_query($con, $sql);
+
+    if (!mysqli_query($con,$sql))
+{
+    die ("An Error in the SQL Query: " . mysqli_error($con) );
+}
+
+
+
+
+while($row=mysqli_fetch_array($result))
+    {
+
+    $name = $row["Name"];
+
+echo "<option value='" . $name . "'>" . $name . "</option>";
+
+
+    }
+
+mysqli_close($con);
+
+?>
+
+</select>
+
+<br>
+
+<input type="submit" value="Delete">
+
+
+
+
+
+
 </section>
          
 
@@ -95,3 +131,5 @@
   </div>
 </body>
 </html>
+
+
