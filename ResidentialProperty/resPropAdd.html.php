@@ -9,19 +9,22 @@ Purpose: A HTML form for entering a new Residential Property-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a New Residential Property</title>
-    <script src="elements.js"></script>
+    <script src="element.js"></script>
     <script src="resPropAdd.js"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="menu"></div>
-    <script>document.getElementById('menu').innerHTML = createMenu();</script>
-    
+    <div class="card">
     <header class="content__top">
         <h1>Add a New Residential Property</h1>
     </header>
 
     <form action="resPropAdd.php" method="Post" onsubmit="return validate()">
+
+    <div class="layout">
+
+    <div id="menu"></div>
+    <script>document.getElementById('menu').innerHTML = createMenu();</script>
 
     <?php
         include 'db.inc.php';
@@ -31,6 +34,10 @@ Purpose: A HTML form for entering a new Residential Property-->
         }
     ?>
 
+    <div class="grid">
+        <div class="panel">
+            <fieldset>
+              <legend>Residential Property Details</legend>
     <label for="client">Client:</label><br>
         <select name="client" id="client">
             <option value="">-- Select a client --</option>
@@ -41,6 +48,8 @@ Purpose: A HTML form for entering a new Residential Property-->
             <?php } ?>
         </select><br>
 
+        <div class="two-col">
+        <div class="col">
         <label for="proptype">Property type: </label><br>
         <select name="proptype" id="proptype" required>
             <option value="semidetached">Semi Detached</option>
@@ -56,7 +65,7 @@ Purpose: A HTML form for entering a new Residential Property-->
         oninput="this.setCustomValidity('')"><br>
 
         <label for="eircode">Eircode:</label><br>
-        <input type="text" id="eircode" name="eircode" required pattern="^[A-Z]{1}[\d]{2}[A-Z\d]{4}$" 
+        <input type="text" id="eircode" name="eircode" required pattern="^[A-Z]{1}[\d]{2}[ ]?[A-Z\d]{4}$" 
         required oninvalid="this.setCustomValidity('Please enter a valid Eircode')" 
         oninput="this.setCustomValidity('')"><br>
 
@@ -64,19 +73,31 @@ Purpose: A HTML form for entering a new Residential Property-->
         <input type="text" id="location" name="location" required pattern="^[a-zA-Z]+$"><br>
 
         <label for="levels">Number of Levels:</label><br>
-        <input type="text" id="levels" name="levels" required pattern="^[\d]+$" min="1" max="100"><br>
+        <input type="number" id="levels" name="levels" required pattern="^[\d]+$" min="1" max="100" 
+        oninvalid="this.setCustomValidity('Please enter a number between 1 and 100')" 
+        oninput="this.setCustomValidity('')"><br>
 
         <label for="receptrooms">Number of Reception Rooms:</label><br>
-        <input type="text" id="receptrooms" name="receptrooms" required pattern="^[\d]+$" min="0" max="100"><br>
+        <input type="number" id="receptrooms" name="receptrooms" required pattern="^[\d]+$" min="0" 
+        max="100" oninvalid="this.setCustomValidity('Please enter a number between 0 and 100')" 
+        oninput="this.setCustomValidity('')"><br>
 
         <label for="bedrooms">Number of Bedrooms:</label><br>
-        <input type="text" id="bedrooms" name="bedrooms" required pattern="^[\d]+$" min="1" max="100"><br>
+        <input type="number" id="bedrooms" name="bedrooms" required pattern="^[\d]+$" min="1" 
+        max="100" oninvalid="this.setCustomValidity('Please enter a number between 1 and 100')" 
+        oninput="this.setCustomValidity('')"><br>
 
         <label for="bathrooms">Number of Bathrooms:</label><br>
-        <input type="text" id="bathrooms" name="bathrooms" required pattern="^[\d]+$" min="0" max="100"><br>
+        <input type="number" id="bathrooms" name="bathrooms" required pattern="^[\d]+$" min="0" max="100"
+        oninvalid="this.setCustomValidity('Please enter a number between 0 and 100')" 
+        oninput="this.setCustomValidity('')"><br>
 
+        </div>
+
+
+        <div class="col">
         <label for="area">Area of house:</label><br>
-        <input type="text" id="area" name="area" required pattern="^[\d]+$" min="10"><br>
+        <input type="number" id="area" name="area" required pattern="^[\d]+$" min="10"><br>
 
         <label for="heating">Heating: </label><br>
         <select name="heating" id="heating" required>
@@ -97,7 +118,9 @@ Purpose: A HTML form for entering a new Residential Property-->
         </textarea><br>
 
         <label for="askingprice">Asking price:</label><br>
-        <input type="text" id="askingprice" name="askingprice" required pattern="^[\d, ]+$"><br>
+        <input type="number" id="askingprice" name="askingprice" required pattern="^[\d, ]+$" min="1000"
+        oninvalid="this.setCustomValidity('Please enter a number greater than 1000')" 
+        oninput="this.setCustomValidity('')"><br>
 
         <label for="vtimes">Viewing Times: </label><br>
         <select id="vtimes" name="vtimes">
@@ -110,9 +133,18 @@ Purpose: A HTML form for entering a new Residential Property-->
                 <option value="weekend">Weekends (5pm – 8pm)</option>
         </select>
         <br>
+        </div>
+        </div>
 
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
+        <div class="form-actions">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </fieldset>
+    </div>
+    </div>
+    </div>
+    </div>
     </form>
 </body>
 </html>

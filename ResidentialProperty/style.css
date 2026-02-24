@@ -106,14 +106,14 @@ li.danger .side-menu__link{
 }
 
 /* Main content */
-.land-grid{ padding:18px; background:#fbfdff; }
+.grid{ padding:18px; background:#fbfdff; }
 
-.land-grid .land-panel:first-child{
+.grid .panel:first-child{
   max-width:420px;
   margin:0 auto 14px;
 }
 
-.land-panel{
+.panel{
   background:#fff;
   border:1px solid #e5e7eb;
   border-radius:12px;
@@ -170,7 +170,7 @@ textarea:focus{
   box-shadow:0 0 0 4px rgba(30,58,138,.12);
 }
 
-textarea{ resize:vertical; min-height:90px; }
+textarea{ resize:none; min-height:90px; }
 
 /* Disabled fields */
 input:disabled,
