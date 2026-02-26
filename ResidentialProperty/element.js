@@ -1,3 +1,9 @@
+/*Created by: Joseph Lalor
+Date: 26/01/2026
+Student Number: c00312883
+Title: element.js
+Purpose: A Javascript file to create the sidebar menu in html files, to avoid repetition
+*/
 function createMenu() {
   return `
   <!-- Sidebar -->
