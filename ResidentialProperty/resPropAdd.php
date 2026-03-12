@@ -18,7 +18,7 @@ ClientID) VALUES ('For Sale', '$_POST[address]', '$_POST[askingprice]', '$_POST[
 if (!mysqli_query($con, $sql)) {        //error handling - if there's an error report here
     die ("An Error in the SQL Query: ". mysqli_error($con));
 }
-
+include 'resPropAdd.html.php';
 echo "<br>A record has been added for ". $_POST['address'] . "<br>"; //say record address
 
 mysqli_close($con); //close connection

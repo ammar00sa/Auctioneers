@@ -22,23 +22,23 @@ echo "<br><select name='listbox' id='listbox' onclick='populate()'>";
 // Loop through each row returned from the database
 while ($row = mysqli_fetch_array($result)) {
     $id = $row['Status'];
-    $fname = $row['Address'];
-    $sname = $row['AskingPrice'];
-    $dateofBirth = $row['Location'];
-    $dob = $row['ViewingTime'];
-    $email = $row['Eircode'];
-    $phone = $row['NumBathrooms'];
+    $address = $row['Address'];
+    $askingprice = $row['AskingPrice'];
+    $location = $row['Location'];
+    $viewingtime = $row['ViewingTime'];
+    $eircode = $row['Eircode'];
+    $bath = $row['NumBathrooms'];
     $bed = $row['NumBedrooms'];
-    $bed = $row['Site'];
-    $bed = $row['Notes'];
-    $bed = $row['Area'];
-    $bed = $row['Type'];
-    $bed = $row['HeatingType'];
-    $bed = $row['NumLevels'];
-    $bed = $row['NumReception'];
-    $bed = $row['ClientID'];
-    $allText = "$id,$fname,$sname,$dob,$email,$phone";
-    echo "<option value='$allText'>$fname $sname</option>";
+    $site = $row['Site'];
+    $notes = $row['Notes'];
+    $area = $row['Area'];
+    $type = $row['Type'];
+    $heating = $row['HeatingType'];
+    $levels = $row['NumLevels'];
+    $recept = $row['NumReception'];
+    $client = $row['ClientID'];
+    $fulltext = "$id,$address,$askingprice,$location,$viewingtime,$eircode,$bath,$bed,$site,$notes,$area,$type,$heating,$levels,$recept,$client";
+    echo "<option value='$fulltext'>$address</option>";
 }
 
 echo "</select>";
