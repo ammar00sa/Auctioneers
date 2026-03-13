@@ -1,0 +1,167 @@
+:root{
+    /* General Layout Styles */
+  --general-layout: border-box;
+  --general-height: 100%;
+
+  /* Body styles */
+  --body-margin: 0;
+  --body-ff: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --body-bg: #0f172a;
+  --body-color: #0f127a;
+  --body-lh: 1.4;
+
+  /* Card Styles after the body element */
+  --card-bg: #fff;
+  --card-margin: 28px auto;
+  --card-border: 1px solid #e5e7eb;
+  --card-borderRadius: 14px;
+  --card-boxShadow: 0 12px 30px rgba(15,23,42,.08);
+  --card-overflow: hidden;
+
+  /* Title container */
+  --titleContainerPadding: 20px 22px;
+  --titleContainerBorderBottom: 1px solid #e5e7eb;
+ --titleContainerbg: linear-gradient(180deg,#fff,#fbfcff);
+    /* Title container text  */
+    --titleTextMargin: 0;
+    --titleTextfz: 1.25rem;
+    
+    /* Layout that is inside the form */
+   --sidebarWidth: 260px; /*used in grid layout*/
+   --minHeight: 640px; 
+   --sidebarBorderRight: 1px solid #e5e7eb;
+   --sidebarbg: #0b1220;
+   --sidebarcolor: #e5e7eb;
+   --sidebarPadding: 16px 14px;
+
+   /* Brand Logo container */
+   --logoPadding: 10px 8px 16px;
+
+   /* Brand Logo image */
+   --logoImageWidth: 140px;
+   --logoHeight: auto;
+   --logoMaxWidth: 100%;
+
+   /* Side bar title */
+   --sideTitleMargin: 10px 8px 12px;
+   --sideTitlefz: 85rem;
+   --sidebarColor: #cbd5e1;
+   --sideTextTransform: uppercase;
+   --sideTextletterSpacing: 08em;
+
+   /* Side bar menu */
+   --sidebarlistStyle: none;
+   --sidebarpadding: 0;
+   --sidebarmargin: 0;
+   --sidebarMenugap: 10px;
+
+   /* Side Divider */
+   --sideDividerHeight: 1px;
+   --sideDividerbg: rgba(226,232,240,.18);
+   --sideDividermargin: 10px 6px;
+
+   /* Menu links */
+   --menuLinkGap: 10px;
+   --menuLinkPadding: 10px;
+   --menuLinkBr: 10px;
+   --menuLinkColor: #e5e7eb;
+   --menuLinkDecoration: none;
+    --menuLinkHover: rgba(148,163,184,.16); 
+    
+    /* Menu Link Active */
+    --menuLinkbg: rgba(30,58,138,.22);
+    --menuLinkOutline: 1px solid rgba(30,58,138,.35);
+
+    /* Menu Link -> Exit Button */
+    --menuLinkMarginTop: 10px;
+    --menuLinkbg: rgba(239,68,68,.12);
+    --menuLinkOutline: 1px solid rgba(239,68,68,.25);
+
+    /* Main Content */
+    --mainPadding: 18px;
+    --mainBackground: #fbfdff;
+
+    /* Client Listbox FirstChild*/
+  --firstChildbg: #0b1220;
+  --firstChildborder: #818cf8;
+  --firstChildWidth: 420px;
+  --firstChildMargin: 0 auto 14px;
+  --firstChildMaxWidth: 420px;
+
+    /* Client Listbox */
+    --clientListBoxbg: #fff;
+    --clientListBoxBorder: 1px solid #e5e7eb;
+    --clientListBoxBorderRadius: 12px;
+    --clientListBoxPadding: 16px;
+    --clientListBoxShadow: 0 8px 22px rgba(15,23,42,.04);
+    --clientListBoxMarginBottom: 14px;
+
+    /* Property Form Box  using fieldset*/
+    --propertyBorder: 2px solid #0b1220;
+    --propertyBorderRadius: 12px;
+    --propertyPadding: 14px;
+
+     /* Property Form Title Using Legend */
+     --propTitlePadding: 0 10px;
+     --propTitleColor: 0b1220;
+     --propTitlefw: 700;
+
+     /* Two columns in the Porperty form */
+        --propColumns: 1fr;
+        --propGap:  20px;
+
+    /* Arrange input using grid */
+    --inputGap: 10px;
+    --inputMarginBottom: 18px;
+
+    /* Fields (Label) Styling */
+    --labelfz: .9rem;
+    --labelColor: #334155;
+    --labelfw: 700;
+
+    /* Required Text */
+    --requiredTextColor: #ef4444;
+
+    /* Input(text, number, select, textarea) Styling */
+    --inputWidth: 100%;
+    --inputPadding: 11px 12px;
+    --inputBorder: 1px solid #e5e7eb;
+    --inputBorderRadius: 10px;
+    --inputbg: #fff;
+    --inputColor: #0f172a;
+    --inputOutline: none;
+    --inputMinWidth: 0;
+
+    /* Input, select, textarea (Focus) Styling */
+    --focusBorderColor: rgba(30,58,138,.8);
+    --focusBoxShadow: 0 0 0 4px rgba(30,58,138,.12);
+
+    /* Input, select, textarea (Disabled) Styling*/
+    --disabledbg: #f1f5f9;
+    --disabledColor: #64748b;
+    --disabledBorderColor: #e2e8f0;
+    --disabledCursor: not-allowed;
+
+    /* Buttons Styling */
+    --buttonGap: 10px;
+    --buttonPaddingTop: 12px;
+
+    /* Input (Submit, Reset) */
+    --finalButtonsBorder: 1px solid #e5e7eb;
+    --finalButtonsBorderRadius: 10px;
+    --finalButtonPadding: 10px 14px;
+    --finalButtonCursor: pointer;
+    --finalButtonfw: 800;
+    --finalButtonTransition: all 0.2s ease;
+
+    /* Input (Submit) */
+    --submitButtonBg: #0b1220;
+    --submitButtonBorderColor: rgba(30,58,138,.8);
+    --submitButtonColor: #fff;
+
+    /* Input (Reset) */
+    --resetButtonBg: #fff;
+    --resetColor: #0f172a;
+
+    
+}

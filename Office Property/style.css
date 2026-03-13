@@ -11,6 +11,7 @@ body{
   color:#0f172a;
   line-height:1.4;
 }
+
  /* Highlight the first panel (client select) */
 .office-panel:first-child{
   background:#0b1220;
@@ -49,6 +50,7 @@ body{
   background:#0b1220;
   color:#e5e7eb;
   padding:16px 14px;
+  height: 50%;
 }
 
 .brand-side{
@@ -105,7 +107,6 @@ li.danger .side-menu__link{
   outline:1px solid rgba(239,68,68,.25);
 }
 
-/* Main content */
 .office-grid{ padding:18px; background:#fbfdff; }
 
 .office-grid .office-panel:first-child{
@@ -113,16 +114,7 @@ li.danger .side-menu__link{
   margin:0 auto 14px;
 }
 
-.office-panel{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  padding:16px;
-  box-shadow:0 8px 22px rgba(15,23,42,.04);
-  margin-bottom:14px;
-}
-
-/* Land Details box */
+/* Office Details box */
 fieldset{
   border:2px solid #0b1220;
   border-radius:12px;
@@ -234,4 +226,4 @@ input[type="reset"]:disabled{
   cursor:not-allowed;
   box-shadow:none;
   transform:none;
-}
+} 
