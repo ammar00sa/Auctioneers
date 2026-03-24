@@ -196,7 +196,7 @@ textarea:disabled{
 }
 
 input[type="submit"],
-input[type="reset"]{
+input[type="reset"], input[type="button"]{
   border:1px solid #e5e7eb;
   border-radius:10px;
   padding:10px 14px;
@@ -213,7 +213,7 @@ input[type="submit"]{
 }
 
 /* Reset base */
-input[type="reset"]{
+input[type="reset"], input[type="button"]{
   background:#fff;
   color:#0f172a;
 }

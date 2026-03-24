@@ -14,8 +14,8 @@ Purpose: A HTML/PHP file to create the sidebar menu in html files, to avoid repe
 
       <ul class="side-menu">
           <li><a class="side-menu__link" href="resPropAdd.html.php"><i class="fa-solid fa-house"></i><span>Add a New Residential Property</span></a></li>
-          <li><a class="side-menu__link" href="resPropDelete.html"><i class="fa-solid fa-trash"></i><span>Delete a Residential Property</span></a></li>
-          <li><a class="side-menu__link" href="resPropAmendView.html"><i class="fa-solid fa-pen-to-square"></i><span>Amend/View a Residential Property</span></a></li>
+          <li><a class="side-menu__link" href="resPropDelete.html.php"><i class="fa-solid fa-trash"></i><span>Delete a Residential Property</span></a></li>
+          <li><a class="side-menu__link" href="resPropAmendView.html.php"><i class="fa-solid fa-pen-to-square"></i><span>Amend/View a Residential Property</span></a></li>
 
         <div class="side-divider"></div>
 

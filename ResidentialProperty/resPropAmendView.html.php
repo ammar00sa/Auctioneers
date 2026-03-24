@@ -8,6 +8,8 @@ Purpose: A HTML/PHP form for viewing/amending a Residential Property-->
 <head>
     <!-- Link to the external CSS stylesheet for styling -->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="resPropAdd.js"></script> <!--error detecting javascript-->
+    <title>Amend/View a Residential Property</title>  <!--title-->
 </head>
 <body>
 <script>
@@ -18,15 +20,13 @@ function populate()
     var sel = document.getElementById("listbox");   // Get the listbox element
     var result;
     result = sel.options[sel.selectedIndex].value;   // Get the selected option's value
-    var personDetails = result.split(',');           // Split the value into an array using comma delimiter
-    // Display the full details of the selected person
-    document.getElementById("display").innerHTML = "The details of the selected person are: " + result;
-    document.getElementById("amendid").value = personDetails[0];        // Assign person ID
-    document.getElementById("amendaddress").value = personDetails[1]; // Assign first name
-    document.getElementById("amendaskingprice").value = personDetails[2];  // Assign last name
-    document.getElementById("amendlocation").value = personDetails[3];       // Assign date of birth
-    document.getElementById("amendviewingtime").value = personDetails[4];     // Assign email (Task 2 addition)
-    document.getElementById("amendeircode").value = personDetails[5];     // Assign phone (Task 2 addition)
+    var personDetails = result.split('/');           // Split the value into an array using comma delimiter
+    document.getElementById("amendstatus").value = personDetails[0];            // Assign person ID
+    document.getElementById("amendaddress").value = personDetails[1];           // Assign first name
+    document.getElementById("amendaskingprice").value = personDetails[2];       // Assign last name
+    document.getElementById("amendlocation").value = personDetails[3];          // Assign date of birth
+    document.getElementById("amendviewingtime").value = personDetails[4];       // Assign email (Task 2 addition)
+    document.getElementById("amendeircode").value = personDetails[5];           // Assign phone (Task 2 addition)
     document.getElementById("amendbath").value = personDetails[6];
     document.getElementById("amendbed").value = personDetails[7];
     document.getElementById("amendsite").value = personDetails[8];
@@ -37,6 +37,7 @@ function populate()
     document.getElementById("amendlevels").value = personDetails[13];
     document.getElementById("amendrecept").value = personDetails[14];
     document.getElementById("amendclient").value = personDetails[15];
+    document.getElementById("id").value = personDetails[16];
 }
 
 // This function toggles the form fields between disabled (view-only) and enabled (editable)
@@ -45,7 +46,7 @@ function toggleLock()
     if (document.getElementById("amendViewbutton").value == "Amend Details") // If currently in view mode
     {
         // Enable all editable fields so the user can modify them
-        document.getElementById("amendid").disabled = false;
+        document.getElementById("amendstatus").disabled = false;
         document.getElementById("amendaddress").disabled = false;
         document.getElementById("amendaskingprice").disabled = false;
         document.getElementById("amendlocation").disabled = false;
@@ -61,12 +62,14 @@ function toggleLock()
         document.getElementById("amendlevels").disabled = false;
         document.getElementById("amendrecept").disabled = false;
         document.getElementById("amendclient").disabled = false;
+        document.querySelector('input[type="submit"]').disabled = false;
+        document.querySelector('input[type="reset"]').disabled = false;
         document.getElementById("amendViewbutton").value = "View Details"; // Change button text
     }
     else // If currently in amend mode
     {
         // Disable all fields to return to view-only mode
-        document.getElementById("amendid").disabled = true;
+        document.getElementById("amendstatus").disabled = true;
         document.getElementById("amendaddress").disabled = true;
         document.getElementById("amendaskingprice").disabled = true;
         document.getElementById("amendlocation").disabled = true;
@@ -81,7 +84,9 @@ function toggleLock()
         document.getElementById("amendheating").disabled = true;
         document.getElementById("amendlevels").disabled = true;
         document.getElementById("amendrecept").disabled = true;
-        document.getElementById("amendclient").disabled = true;        
+        document.getElementById("amendclient").disabled = true;
+        document.querySelector('input[type="submit"]').disabled = true;
+        document.querySelector('input[type="reset"]').disabled = true;        
         document.getElementById("amendViewbutton").value = "Amend Details"; // Change button text back
     }
 }
@@ -94,8 +99,8 @@ function confirmCheck()
     if (response) // If user clicks OK
     {
         // Enable all fields so their values are included in the form submission
-        // Disabled fields are not submitted with the form by default
-        document.getElementById("amendid").disabled = false;
+        // disabled fields are not submitted with the form by default
+        document.getElementById("amendstatus").disabled = false;
         document.getElementById("amendaddress").disabled = false;
         document.getElementById("amendaskingprice").disabled = false;
         document.getElementById("amendlocation").disabled = false;
@@ -121,6 +126,15 @@ function confirmCheck()
         return false; // Prevents form submission
     }
 }
+function handleSubmit() {
+    if (!confirmCheck()) {
+        return false;  // user clicked cancel
+    }
+    if (!validate()) {
+        return false;  // validation failed
+    }
+    return true;
+}
 </script>
 
 
@@ -129,41 +143,51 @@ function confirmCheck()
         <h1>Amend/View a Residential Property</h1>
     </header>
 <!-- Form that submits amended data to resPropAmendView.php for processing -->
-<form action="resPropAdd.php" method="Post" onsubmit="return validate()"> <!--post method used to add to database and submission validation using javascript-->
+<form action="resPropAmendView.php" method="Post" onsubmit="return handleSubmit()"> <!--post method used to add to database and submission validation using javascript-->
 
     <div class="layout"> <!--class for styling purposes-->
 
         <div id="menu"><?php include 'sidebar.html.php'; ?></div> <!--sidebar styling class and adding php sidebar-->
-        <h4>Please select a property and then click the amend button if you wish to update</h4>
+        
 
 
     <div class="grid">
+        <h4>Please select a property and then click the amend button if you wish to update</h4>
         <div class="panel">
             <fieldset> 
               <legend>Residential Property Details</legend>
 
+                <input type="text" id="updateMsg" disabled style="display: none;"><br>
+
                 <!-- Include the listbox which fetches persons from the database -->
                 <?php include 'listbox.php'; ?>
             
-            <!-- Paragraph to display the selected person's details -->
-            <p id="display"></p>
-
+<br><br>
         <!-- Button to toggle between Amend and View modes -->
-<input type="button" value="Amend Details" id="amendViewbutton" onclick="toggleLock()">
+<input type="button" value="Amend Details" id="amendViewbutton" onclick="toggleLock()"><br><br>
 
-        <label for="amendclient">Client:</label><br>
-        <select name="amendclient" id="amendclient" disabled>
-                <option value="">-- Select a client --</option>
-                    <?php while ($row = mysqli_fetch_assoc($sql)) {?>
-                    <option value="<?= htmlspecialchars($row['ClientID']) ?>">
-                    <?= htmlspecialchars($row['Name']) ?>
-                </option>
-            <?php } ?>
-        </select><br>
+<label for="amendclient">Client:</label><br>
+<select name="amendclient" id="amendclient" disabled>
+    <option value="">-- Select a client --</option>
+    <?php 
+    $clientResult = mysqli_query($con, "SELECT ClientID, Name FROM Client");
+    while ($row = mysqli_fetch_assoc($clientResult)) { ?>
+        <option value="<?= htmlspecialchars($row['ClientID']) ?>">
+            <?= htmlspecialchars($row['Name']) ?>
+        </option>
+    <?php } ?>
+</select><br>
         <div id="clienterrmsg"></div>
 
         <div class="two-col">
         <div class="col">
+            
+        <label for="amendstatus">Property type: </label><br>
+        <select name="amendstatus" id="amendstatus"disabled>
+            <option value="For Sale">For Sale</option>
+            <option value="Sale Agreed">Sale Agreed</option>
+        </select><br> 
+
         <label for="amendtype">Property type: </label><br>
         <select name="amendtype" id="amendtype" required disabled>
             <option value="semidetached">Semi Detached</option>
@@ -248,17 +272,15 @@ function confirmCheck()
                 <option value="weekend">Weekends (5pm – 8pm)</option>
         </select>
         <br>
+        <input type="hidden" id="id" name="id" style="display: none;"></div>
         </div>
         </div>
 
         <div class="form-actions"> <!--css class for styling-->
-            <input type="submit" value="Submit"> <!--submit button-->
-            <input type="reset" value="Reset"> <!--reset button-->
+            <input type="submit" value="Submit" disabled> <!--submit button-->
+            <input type="reset" value="Reset" disabled> <!--reset button-->
         </div>
     </fieldset>
-    </div>
-    </div>
-    </div>
     </div>
     </div>
     </div>
