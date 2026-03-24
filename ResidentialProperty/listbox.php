@@ -10,7 +10,7 @@ date_default_timezone_set('UTC'); // Set the default timezone to UTC
 // SQL query updated to also select email and phone from persons table
 $sql = "SELECT ResidentialID, Status, Address, AskingPrice, Location, ViewingTime,
 Eircode, NumBathrooms, NumBedrooms, Site, Notes, Area, Type, HeatingType, NumLevels, NumReception,
-ClientID FROM Residential";
+ClientID FROM Residential WHERE DFlag = 0";
 
 if (!$result = mysqli_query($con, $sql)) { //error handling
     die('Error in querying the database' . mysqli_error($con));

@@ -1,10 +1,8 @@
 <!-- Created by: Joseph Lalor
-Date: 27/01/2026-->
-<!--
-Creator: Joseph Lalor
-Project: PHP Labsheet 6 - Task 1
-Date: 05/03/2026
-Student Number: c00312883 -->
+Date: 27/01/2026
+Student Number: c00312883
+Title: resPropDelete.html.php
+Purpose: A PHP/HTML file for deleting a Residential Property record-->
 <?php session_start(); //start session to access session variables
 ?>
 
@@ -48,52 +46,6 @@ function populate()
     document.querySelector('input[type="submit"]').disabled = false;
 }
 
-// This function toggles the form fields between disabled (view-only) and enabled (editable)
-function toggleLock()
-{
-    if (document.getElementById("amendViewbutton").value == "Amend Details") // If currently in view mode
-    {
-        // Enable all editable fields so the user can modify them
-        document.getElementById("status").disabled = false;
-        document.getElementById("address").disabled = false;
-        document.getElementById("askingprice").disabled = false;
-        document.getElementById("location").disabled = false;
-        document.getElementById("viewingtime").disabled = false;
-        document.getElementById("eircode").disabled = false;
-        document.getElementById("bath").disabled = false;
-        document.getElementById("bed").disabled = false;
-        document.getElementById("site").disabled = false;
-        document.getElementById("notes").disabled = false;
-        document.getElementById("area").disabled = false;
-        document.getElementById("type").disabled = false;
-        document.getElementById("heating").disabled = false;
-        document.getElementById("levels").disabled = false;
-        document.getElementById("recept").disabled = false;
-        document.getElementById("client").disabled = false;
-    }
-    else // If currently in amend mode
-    {
-        // Disable all fields to return to view-only mode
-        document.getElementById("status").disabled = true;
-        document.getElementById("address").disabled = true;
-        document.getElementById("askingprice").disabled = true;
-        document.getElementById("location").disabled = true;
-        document.getElementById("viewingtime").disabled = true;
-        document.getElementById("eircode").disabled = true;
-        document.getElementById("bath").disabled = true;
-        document.getElementById("bed").disabled = true;
-        document.getElementById("site").disabled = true;
-        document.getElementById("notes").disabled = true;
-        document.getElementById("area").disabled = true;
-        document.getElementById("type").disabled = true;
-        document.getElementById("heating").disabled = true;
-        document.getElementById("levels").disabled = true;
-        document.getElementById("recept").disabled = true;
-        document.getElementById("client").disabled = true;
-        document.querySelector('input[type="submit"]').disabled = true;
-    }
-}
-
 // This function confirms the user wants to save changes before submitting
 function confirmCheck()
 {
@@ -125,7 +77,6 @@ function confirmCheck()
     {
         // If user cancels, repopulate fields with original data and lock them
         populate();
-        toggleLock();
         return false; // Prevents form submission
     }
 }
@@ -136,8 +87,8 @@ function confirmCheck()
     <header class="content__top"> <!--header css class-->
         <h1> Delete a Person</h1>
     </header>
-<!-- Form that submits amended data to resPropAmendView.php for processing -->
-<form action="resPropAmendView.php" method="Post" onsubmit="return validate()"> <!--post method used to add to database and submission validation using javascript-->
+<!-- Form that submits amended data to resPropDelete.php for processing -->
+<form action="resPropDelete.php" method="Post" onsubmit="return confirmCheck() && validate()"> <!--post method used to add to database and submission validation using javascript-->
 
     <div class="layout"> <!--class for styling purposes-->
 
