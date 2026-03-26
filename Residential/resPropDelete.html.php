@@ -11,7 +11,6 @@ Purpose: A PHP/HTML file for deleting a Residential Property record-->
 <head>
     <!-- Link to the external CSS stylesheet for styling -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="resPropAdd.js"></script> <!--error detecting javascript-->
     <title>Delete a Residential Property</title>  <!--title-->
 </head>
 
@@ -42,8 +41,8 @@ function populate()
     document.getElementById("levels").value = personDetails[13];
     document.getElementById("recept").value = personDetails[14];
     document.getElementById("client").value = personDetails[15];
-    document.getElementById("id").value = personDetails[16];
-    document.querySelector('input[type="submit"]').disabled = false;
+    document.getElementById("id").value = personDetails[16]; // hidden field stores the ResidentialID passed to the delete query
+    document.querySelector('input[type="submit"]').disabled = false; // enable the delete button once a property is selected
 }
 
 // This function confirms the user wants to save changes before submitting
@@ -77,6 +76,22 @@ function confirmCheck()
     {
         // If user cancels, repopulate fields with original data and lock them
         populate();
+        document.getElementById("status").disabled = true;
+        document.getElementById("address").disabled = true;
+        document.getElementById("askingprice").disabled = true;
+        document.getElementById("location").disabled = true;
+        document.getElementById("viewingtime").disabled = true;
+        document.getElementById("eircode").disabled = true;
+        document.getElementById("bath").disabled = true;
+        document.getElementById("bed").disabled = true;
+        document.getElementById("site").disabled = true;
+        document.getElementById("notes").disabled = true;
+        document.getElementById("area").disabled = true;
+        document.getElementById("type").disabled = true;
+        document.getElementById("heating").disabled = true;
+        document.getElementById("levels").disabled = true;
+        document.getElementById("recept").disabled = true;
+        document.getElementById("client").disabled = true;
         return false; // Prevents form submission
     }
 }
@@ -87,8 +102,8 @@ function confirmCheck()
     <header class="content__top"> <!--header css class-->
         <h1> Delete a Person</h1>
     </header>
-<!-- Form that submits amended data to resPropDelete.php for processing -->
-<form action="resPropDelete.php" method="Post" onsubmit="return confirmCheck() && validate()"> <!--post method used to add to database and submission validation using javascript-->
+<!-- Form that submits the selected property id to resPropDelete.php for processing -->
+<form action="resPropDelete.php" method="Post"> 
 
     <div class="layout"> <!--class for styling purposes-->
 
@@ -102,7 +117,7 @@ function confirmCheck()
             <fieldset> 
               <legend>Residential Property Details</legend>
 
-                <input type="text" id="updateMsg" disabled style="display: none;"><br>
+                <input type="text" id="updateMsg" disabled style="display: none;"><br> <!--hidden field shown by updated() after a successful delete-->
 
                 <!-- Include the listbox which fetches persons from the database -->
                 <?php include 'listbox.php'; ?>
@@ -110,7 +125,7 @@ function confirmCheck()
 <br><br>
 
 <label for="client">Client:</label><br>
-<select name="client" id="client" disabled>
+<select name="client" id="client" disabled> <!--all fields are display-only on this page, editing is not permitted-->
     <option value="">-- Select a client --</option>
     <?php 
     $clientResult = mysqli_query($con, "SELECT ClientID, Name FROM Client");
@@ -215,12 +230,12 @@ function confirmCheck()
                 <option value="weekend">Weekends (5pm – 8pm)</option>
         </select>
         <br>
-        <input type="hidden" id="id" name="id" style="display: none;"></div>
+        <input type="hidden" id="id" name="id" style="display: none;"> <!--hidden field holds the ResidentialID passed to the soft delete query--></div>
         </div>
         </div>
 
         <div class="form-actions"> <!--css class for styling-->
-            <input type = "submit" value = "Delete the record" disabled>
+            <input type = "submit" value = "Delete the record" disabled> <!--disabled until a property is selected from the listbox-->
         </div>
     </fieldset>
     </div>

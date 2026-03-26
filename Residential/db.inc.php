@@ -14,7 +14,7 @@ $dbname="Auctioneers";
 $con = mysqli_connect ($hostname, $username, $password, $dbname); //connect to db
 if (!$con) //error handling
     {
-        die ("Failed to connect to MySQL: ". mysqli_connect_error());
+        die ("Failed to connect to MySQL: ". mysqli_connect_error()); //display connection error and stop execution
     }
 ?>
 </body>

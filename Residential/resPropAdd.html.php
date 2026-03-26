@@ -23,6 +23,9 @@ Purpose: A PHP/HTML form for entering a new Residential Property-->
             <div class="layout"> <!--class for styling purposes-->
 
             <div id="menu"><?php include 'sidebar.html.php'; ?></div> <!--sidebar styling class and adding php sidebar-->
+
+            <div class="grid"> <!--sets up styling grid as in css-->
+            <h4>Please select a client and then enter the details of a new residential property</h4>
             <!--here we connect to database to get a result set of all clients by name and clientid with error handling-->
             <?php
             include 'db.inc.php';
@@ -32,7 +35,6 @@ Purpose: A PHP/HTML form for entering a new Residential Property-->
             }
             ?>
 
-        <div class="grid"> <!--sets up styling grid as in css-->
             <div class="panel"> <!--panel class from css-->
                 <fieldset> 
                 <legend>Residential Property Details</legend> <!--top label of fieldset-->
@@ -43,11 +45,11 @@ Purpose: A PHP/HTML form for entering a new Residential Property-->
                     <!--this php section lists out all clients in a drop down select box, using the previous results set-->
                     <?php while ($row = mysqli_fetch_assoc($sql)) {?>
                     <option value="<?= htmlspecialchars($row['ClientID']) ?>">
-                    <?= htmlspecialchars($row['Name']) ?>
+                    <?= htmlspecialchars($row['Name']) ?> <!--htmlspecialchars prevents XSS by encoding special characters-->
                 </option>
                     <?php } ?>
                 </select><br>
-                <div id="clienterrmsg"></div>
+                <div id="clienterrmsg"></div> <!--target for javascript client validation error message-->
 
                     <div class="two-col"> <!--two column css styling tag-->
                         <div class="col"> <!--column one-->

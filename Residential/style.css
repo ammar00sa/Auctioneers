@@ -224,7 +224,7 @@ input[type="submit"]:not(:disabled):hover{
   border-color:#1e3a8a;
 }
 
-input[type="reset"]:not(:disabled):hover{
+input[type="reset"]:not(:disabled):hover, input[type="button"]:not(:disabled):hover{
   background:#374151;
   border-color:#374151;
   color:#fff;
@@ -232,11 +232,26 @@ input[type="reset"]:not(:disabled):hover{
 
 /* Disabled buttons (grey + no hover) */
 input[type="submit"]:disabled,
-input[type="reset"]:disabled{
+input[type="reset"]:disabled, input[type="button"]:disabled{
   background:#e5e7eb;
   color:#9ca3af;
   border-color:#e5e7eb;
   cursor:not-allowed;
   box-shadow:none;
   transform:none;
+}
+
+table {
+  border-collapse: collapse; /* prevents double borders between cells */
+}
+
+td, th {
+  border: 1px solid black;
+  border-radius: 1px;
+  padding: 8px; /* helps visibility */
+}
+
+tr:hover td,
+tr:hover th {
+  background-color: #64748b;
 }

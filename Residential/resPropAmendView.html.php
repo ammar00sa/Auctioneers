@@ -37,7 +37,7 @@ function populate()
     document.getElementById("amendlevels").value = personDetails[13];
     document.getElementById("amendrecept").value = personDetails[14];
     document.getElementById("amendclient").value = personDetails[15];
-    document.getElementById("id").value = personDetails[16];
+    document.getElementById("id").value = personDetails[16]; // hidden field stores the ResidentialID for the UPDATE query
 }
 
 // This function toggles the form fields between disabled (view-only) and enabled (editable)
@@ -126,6 +126,9 @@ function confirmCheck()
         return false; // Prevents form submission
     }
 }
+
+// runs both confirmCheck and validate before allowing submission
+// both must return true for the form to submit
 function handleSubmit() {
     if (!confirmCheck()) {
         return false;  // user clicked cancel
@@ -157,7 +160,7 @@ function handleSubmit() {
             <fieldset> 
               <legend>Residential Property Details</legend>
 
-                <input type="text" id="updateMsg" disabled style="display: none;"><br>
+                <input type="text" id="updateMsg" disabled style="display: none;"><br> <!--hidden field shown by updated() after a successful save-->
 
                 <!-- Include the listbox which fetches persons from the database -->
                 <?php include 'listbox.php'; ?>
@@ -167,7 +170,7 @@ function handleSubmit() {
 <input type="button" value="Amend Details" id="amendViewbutton" onclick="toggleLock()"><br><br>
 
 <label for="amendclient">Client:</label><br>
-<select name="amendclient" id="amendclient" disabled>
+<select name="amendclient" id="amendclient" disabled> <!--disabled by default, enabled when amend mode is active-->
     <option value="">-- Select a client --</option>
     <?php 
     $clientResult = mysqli_query($con, "SELECT ClientID, Name FROM Client");
@@ -177,7 +180,7 @@ function handleSubmit() {
         </option>
     <?php } ?>
 </select><br>
-        <div id="clienterrmsg"></div>
+        <div id="clienterrmsg"></div> <!--target for javascript client validation error message-->
 
         <div class="two-col">
         <div class="col">
@@ -272,13 +275,13 @@ function handleSubmit() {
                 <option value="weekend">Weekends (5pm – 8pm)</option>
         </select>
         <br>
-        <input type="hidden" id="id" name="id" style="display: none;"></div>
+        <input type="hidden" id="id" name="id" style="display: none;"> <!--hidden field holds the ResidentialID used to identify the record in the UPDATE query--></div>
         </div>
         </div>
 
         <div class="form-actions"> <!--css class for styling-->
-            <input type="submit" value="Submit" disabled> <!--submit button-->
-            <input type="reset" value="Reset" disabled> <!--reset button-->
+            <input type="submit" value="Submit" disabled> <!--submit button - remains disabled until amend mode is activated-->
+            <input type="reset" value="Reset" disabled> <!--reset button - remains disabled until amend mode is activated-->
         </div>
     </fieldset>
     </div>
