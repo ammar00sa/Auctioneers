@@ -1,0 +1,125 @@
+<!-- 
+  Group Work - Auctioneers Project - IMPN 2026
+
+  Page: Client Maintenance
+  Description: This page is used to add, delete, or edit client details.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Basic setup -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Page title -->
+  <title>Client Maintenance</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Main container -->
+  <div class="card">
+
+    <!-- Top header -->
+    <div class="content__top">
+      <h2>Client Maintenance</h2>
+    </div>
+
+    <div class="layout">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <!-- Logo -->
+        <div class="brand-side">
+          <img src="logo.png" alt="Logo" class="brand-side__logo">
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+
+          <!-- Sidebar title -->
+          <div class="side-title">Client Maintenance</div>
+
+          <!-- Menu list -->
+          <ul class="side-menu">
+
+            <!-- Add client -->
+            <li>
+              <a class="side-menu__link is-active" href="clients.html">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Add a New Client</span>
+              </a>
+            </li>
+
+            <!-- Delete client -->
+            <li>
+              <a class="side-menu__link" href="delete-client.html">
+                <i class="fa-solid fa-user-minus"></i>
+                <span>Delete a Client</span>
+              </a>
+            </li>
+
+            <!-- Edit/view client -->
+            <li>
+              <a class="side-menu__link" href="edit-client.html">
+                <i class="fa-solid fa-user-pen"></i>
+                <span>Amend / View a Client</span>
+              </a>
+            </li>
+
+            <!-- Exit -->
+            <li class="danger">
+              <a class="side-menu__link" href="home.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Exit</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
+      </aside>
+
+      <!-- Main content -->
+      <main class="land-grid">
+
+        <!-- Info section -->
+        <div class="land-panel">
+
+          <!-- Section title -->
+          <h3>Add a New Client</h3>
+
+          <!-- Explanation -->
+          <p>
+            This section allows staff to register new clients into the
+            IMPN Estates system. Client records store important contact
+            information and are required before a client can place bids
+            or purchase property.
+          </p>
+
+          
+          <p>
+            Use the menu on the left to delete or amend existing client
+            records if needed.
+          </p>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
