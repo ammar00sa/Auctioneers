@@ -108,21 +108,21 @@
                         <div class="side-title">Client Maintenance</div> <!--Left menu section-->
                         <ul class="side-menu">
                             <li>
-                                <a class="side-menu__link" href="../Add Client/addClient.html">
+                                <a class="side-menu__link" href="addClient.html">
                                     <!--Add client(it will direct you to the addClient page)-->
                                     <i class="fa-solid fa-user-plus"></i>
                                     <span>Add a New Client</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="side-menu__link" href="../Delete Client/deleteClient.html.php">
+                                <a class="side-menu__link" href="deleteClient.html.php">
                                     <!--Delete client(it will direct you to the deleteClient page)-->
                                     <i class="fa-solid fa-user-minus"></i>
                                     <span>Delete a Client</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="side-menu__link is-active" href="AmendView.html.php">
+                                <a class="side-menu__link is-active" href="editClient.html">
                                     <!--Edit client(it will direct you to the editClient page)-->
                                     <i class="fa-solid fa-user-pen"></i>
                                     <span>Amend / View a Client</span>
@@ -236,7 +236,7 @@
                             </div>
 
                             <div class="form-actions">
-								<input type="reset" name="Cancel" value="Cancel">
+                                <input type="reset" name="Cancel" value="Cancel">
 
                                 <input type="submit" value="Save Changes">
                             </div>

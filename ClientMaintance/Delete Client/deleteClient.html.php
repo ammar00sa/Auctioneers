@@ -25,7 +25,7 @@
 <body>
     <div class="card">
         <div class="content__top">
-            <h2>Delete Client</h2>
+            <h2>Client Maintenance</h2>
         </div>
 
         <form action="deleteClient.php" method="post" onsubmit="return confirmCheck()">
